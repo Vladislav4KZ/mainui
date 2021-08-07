@@ -14,6 +14,9 @@ GNU General Public License for more details.
 */
 
 #include <ctype.h>
+#include <fstream.h>
+#include <iostream.h>
+#include <string.h>
 #include "extdll_menu.h"
 #include "BaseMenu.h"
 #include "Utils.h"
@@ -413,6 +416,13 @@ static void Localize_InitLanguage( const char *language )
 
 	// mod strings override default ones
 	Localize_AddToDictionary( gamedir,  language );
+
+	ifstream openFile;
+	string GameTitle = %s;
+    	openFile("mainui_%s.txt"), language;
+    	openFile >> GameTitle;
+    	openFile.replace(GameTitle, "%s", gMenu.m_gameinfo.title);
+
 }
 
 static void Localize_Init( void )
